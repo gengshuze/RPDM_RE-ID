@@ -1,0 +1,9 @@
+function gabor_k = compute(x,y,v,u)
+sigma=1;
+kv=2^(-(v+2)/2)*pi;
+kx=kv*cos(u);
+ky=kv*sin(u);
+k=[kx;ky];
+z=[x,y];
+k2=kx^2+ky^2;
+gabor_k=k2/sigma^2*exp(-k2*(x^2+y^2)/2/sigma^2)*(exp(1i*z*k)-exp(-sigma^2/2));
